@@ -1,0 +1,28 @@
+@media (max-width: 758px){
+    .card{
+        display: flex;
+        flex-direction: column;
+    }
+    .img-card{
+        width: 100%;
+    }
+    .one-car-body{
+        width: 100%;
+    }
+    .connect-form{
+        width: 100%;
+    }
+    .connect-form>button{
+    }
+    .link{
+        flex-wrap: wrap;
+    }
+    .link>a{
+        display: block;
+        width: 100%;
+    }
+    .formCreate{
+        width: 100%;
+        margin: 0;
+    }
+}

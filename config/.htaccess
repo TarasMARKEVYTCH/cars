@@ -1,0 +1,4 @@
+ AuthType Basic
+ AuthName "restricted area"
+ AuthUserFile /Applications/MAMP/htdocs/crud/config/password/.htpasswd
+ require valid-user

@@ -1,0 +1,185 @@
+a{
+    text-decoration: none;
+    color:#111
+}
+a:hover{
+    color: rgb(78, 67, 53);
+}
+body{
+    width: 100%;
+    background-color: #212529;
+    position: relative;
+}
+main{
+    /* min-height: 100vh; */
+    /* position: relative; */
+    padding: 0 1.3rem;
+    /* margin-top: 100px; */
+}
+section{
+    min-height: 50vh;
+    position: relative;
+}
+footer{
+    min-height: 100px;
+    background-color: #111;
+    justify-content: center;
+    color: azure;
+}
+                                                                    /* ======== HEADER ======= */
+.header{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: 0.6s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+.header.active {
+    max-height: 75px;
+    background: #4e545c;
+    z-index: 100;
+    transition: all 0.2s ease-out;
+}
+.dropdown-menu[data-bs-popper]{
+    background: rgb(27, 27, 27);
+    right: 0;
+}
+.dropdown-item{
+    color: orange;
+}
+.dropdown-item:hover{
+    color:rgb(185, 121, 0);
+}
+                                    /* ================== main page ============== */
+.card{
+    border: none;
+}
+.card>a>img{
+    height: 200px;
+    object-fit:cover;
+}
+.container{
+    position: relative;
+}
+.cause1{
+    background: center/cover no-repeat url('../images/garage.jpeg');
+}
+.cause2{
+    background: center/cover no-repeat url('../images/mechanic.jpeg');
+}
+.cause3{
+    background: center/cover no-repeat url('../images/mobile.jpeg');
+}
+                                                    /* ================== CAROUSEL ============== */
+.carousel{
+    box-shadow: 0 0 4px 2px rgb(56, 56, 56);
+    z-index: -100;
+    height: 350px;
+}
+.carousel-inner{
+    height: 100%;
+}
+.carousel-item{
+    height: 100%;
+    position: relative;
+    transition: 1s ease-out;
+}
+.carousel-item img{
+    height: 100%;
+    object-fit:cover;
+    z-index: -100;
+}
+                                                    /* ================== Create Car ============== */
+.new-car{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    bottom: 20px;
+    padding: 1rem;
+    border-radius: 50%;
+    color: aqua;
+    box-shadow: 0 0 12px 2px rgb(90, 88, 88);
+}
+.form-example>input{
+    width: 60%;
+}
+.form-example>select{
+    width: 60%;
+}
+.new-car:hover{
+    transform: scale(0.9);
+}
+                                                    /* ================== LOGIN ============== */
+.connect-form{
+    width: 50%;
+    border: 1px solid #222;
+    border-radius: 0.5rem;
+    background-color: rgba(119, 119, 119, 0.466);
+}
+.connect-form input{
+    width: 100%;
+    border-radius: 5px;
+}
+.login{
+    background-color: #111;
+    margin-top: 50px;
+}
+                                                /* ================== one car ============== */
+#voitureDesc{
+    width: 60%;
+}
+input[type='file']{
+    color: transparent;
+}
+.card-text{
+    max-height: 100px;
+    overflow-y: scroll;
+}
+.one-car-body{
+    width: 100%;
+}
+/* .img-card{
+    width: 45%;
+    object-fit: cover;
+} */
+#output{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+.cat-item{
+    max-height: 500px;
+}
+.cat-button{
+    height: fit-content;
+}
+.cat-img{
+    width: 100%;
+    object-fit: cover;
+}
+.logo{
+    height: 50px;
+}
+                                            /* ================== Reserved car ============== */
+.booked{
+    position: relative;
+}
+.booked-car{
+    z-index: -1;
+}
+.booked-text{
+    position: absolute;
+    width: 100%;
+    background-color: rgb(180, 154, 168);
+    top:50%;
+    z-index: 2;
+    transform: rotate(37deg);
+}
+                                             /* ================== all Cars ============== */
+.all-cars{
+    font-size: 1.5rem;
+    transition: 0.7s;
+}
+.all-cars:hover{
+    transform: scale(0.9);
+}

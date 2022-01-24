@@ -1,7 +1,11 @@
 <?php
 session_start();
-require __DIR__ . '/controllers/allCarsController.php';
+// require_once('libraries/autolload.php');
+require __DIR__ . '/libraries/controllers/Car.php';
 require __DIR__ . '/includes/head.php';
+require_once('libraries/Application.php');
+\Application::delete();
+\Application::insert();
 ?>
 
 <body class="d-flex flex-column justify-content-between h-100">
@@ -13,8 +17,9 @@ require __DIR__ . '/includes/head.php';
         <div class="container-fluid d-flex ">
             <div class="car-list d-flex flex-wrap col-12 mx-auto justify-content-around gap-3">
                 <?php
-                
-                foreach ($cars as $car) {
+                $cars = new \Controllers\Car(); 
+                $cars = $cars->getAllCars();
+                foreach ($cars[0] as $car) {
                     if (isset($_SESSION['name']) && $_SESSION['name'] === 'admin') { ?>
                         <div class="card bg-warning col-12 col-md-4" style="width: 25rem;">
                             <div class="card-body">
@@ -52,8 +57,9 @@ require __DIR__ . '/includes/head.php';
                 <div class="pagination w-100 gap-2 justify-content-center mt-3">
                     <?php
                     // pagionation script
-                    for ($i = 1; $i <= $nbrPage; $i++) {
-                        if ($page != $i) { ?>
+                    for ($i = 1; $i <= $cars[1]; $i++) {
+                        if ($cars[2] != $i) {
+                    ?>
                             <a class="border border-warning text-info text-center rounded" style="width:2rem" href="?page=<?= $i; ?>"><?= $i; ?></a>
                         <?php } else { ?>
                             <a class="border border-dark text-dark text-center rounded bg-warning" style="width:2rem"><?= $i; ?></a>

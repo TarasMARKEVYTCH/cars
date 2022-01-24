@@ -1,7 +1,8 @@
 <?php
 session_start();
-require __DIR__ . '/controllers/carByCat.php';
+// require_once('libraries/autolload.php');
 require __DIR__ . '/includes/head.php';
+require_once('libraries/controllers/Car.php');
 ?>
 
 <body class="d-flex flex-column justify-content-between h-100">
@@ -13,6 +14,8 @@ require __DIR__ . '/includes/head.php';
         <div class="container-fluid mt-5 ">
             <div class="car-list d-flex flex-wrap gap-3 justify-content-center p-3">
                 <?php
+                $carCat = new \Controllers\Car();
+                $carCat = $carCat->carByCategorie();
                 if ($carCat == false) {
                 ?>
                     <h2 class="text-info fs-4 p-5 m-5">OUPS...<br><br>Pas de voiture disponibles</h2>

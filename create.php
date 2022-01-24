@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . '/controllers/createController.php';
+require __DIR__ . '/libraries/controllers/Car.php';
+// require_once('libraries/autolload.php');
 ?>
 <!DOCTYPE html>
 <?php require __DIR__ . '/includes/head.php'; ?>
@@ -7,7 +8,7 @@ require __DIR__ . '/controllers/createController.php';
 <body class="d-flex flex-column justify-content-between h-100">
     <?php require __DIR__ . '/includes/Header.php'; ?>
     <main class="d-flex align-items-center text-center m-auto col-12 login p-3" style="height: 100vh">
-        <form method="POST" class="formCreate d-flex text-info mt-5 mx-auto flex-column gap-2 justify-content-between col-md-6" enctype="multipart/form-data">
+        <form method="POST" action="allCars.php?controller=car&&task=insertCar" class="formCreate d-flex text-info mt-5 mx-auto flex-column gap-2 justify-content-between col-md-6" enctype="multipart/form-data">
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureName">Nom : </label>
                 <input type="text" name="voitureName" id="voitureName" required>

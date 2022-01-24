@@ -1,7 +1,7 @@
 <?php
-require __DIR__ . '/controllers/oneCar.php';
-require __DIR__ . '/controllers/bookCar.php';
+session_start();
 require __DIR__ . '/includes/head.php';
+require_once('libraries/controllers/Car.php');
 ?>
 
 <body>
@@ -9,6 +9,10 @@ require __DIR__ . '/includes/head.php';
     ?>
     <main class="mt-5">
         <?php if (isset($msg)) { ?> <h2 class="text-info text-center"><?= $msg; ?></h2><?php } ?>
+        <?php $car = new \Controllers\Car();
+        $car = $car->getOneCar();
+        ?>
+
         <div class="card d-flex m-3 flex-wrap flex-row mx-auto bg-dark">
             <img src="media/pictures/<?= $car['img']; ?>" class="card-img-top d-flex img-card" alt="...">
             <h2 class="text-light mx-auto">Vous avez choisi: <i><?= $car['name'] . ' ' . $car['model']; ?></i></h2>
@@ -18,10 +22,10 @@ require __DIR__ . '/includes/head.php';
                 <h6 class="card-title"><b>Engine</b>: <?= $car['engine']; ?></h6>
                 <h6 class="card-title"><b>Year</b>: <?= $car['year']; ?></h6>
                 <p class="card-text"><b>Catégorie: </b><?= $car['categorie_name']; ?></p>
-                <?php if(isset($_SESSION['name']) && $_SESSION['name'] === 'admin'){ ?>
-                      <p class="w-100">Commandée <b class="bg-light p-1"><?= $car['book_count']; ?></b> fois</p>
-                      <p class="card-text"><b>Disponibilité:</b><br><?php if ($car['access'] == 1) { ?> <span class="text-success p-2"><?= 'Oui'; ?></span><?php } else { ?> <span class="text-danger fs-5 p-2">Reservé par utilisateur - <b class="bg-light p-1"><?= $car['user_name']; ?></span><?php }; ?></b></p>
-                        <?php } ?>
+                <?php if (isset($_SESSION['name']) && $_SESSION['name'] === 'admin') { ?>
+                    <p class="w-100">Commandée <b class="bg-light p-1"><?= $car['book_count']; ?></b> fois</p>
+                    <p class="card-text"><b>Disponibilité:</b><br><?php if ($car['access'] == 1) { ?> <span class="text-success p-2"><?= 'Oui'; ?></span><?php } else { ?> <span class="text-danger fs-5 p-2">Reservé par utilisateur - <b class="bg-light p-1"><?= $car['user_name']; ?></span><?php }; ?></b></p>
+                <?php } ?>
                 <div class="d-flex flex-wrap justify-content-start gap-5 p-5">
                     <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./images/group.png" alt="group image">
                         <p class="m-auto"><?= $car['seats']; ?> places</p>
@@ -45,23 +49,32 @@ require __DIR__ . '/includes/head.php';
 
                 </div>
                 <p class="card-text"><b>Description:</b><br><?= $car['description']; ?></p>
-                <form class="buttons d-flex gap-2" method="POST">
-                    
-                    <?php if (isset($_COOKIE['name']) && $_COOKIE['name'] === 'admin') {
-                    ?>
+
+                <?php if (isset($_COOKIE['name']) && $_COOKIE['name'] === 'admin') {
+                ?>
+                    <form class="buttons d-flex gap-2" method="POST" action="#">
                         <a href="edition.php?id=<?= $_GET['id']; ?>" class="btn btn-info w-50" name="reservedCar">Modifier</a>
-                        <a href="./controllers/deleteCarController.php?id=<?= $_GET['id']; ?>" class="btn btn-danger w-50" name="deleteCar">Supprimer</a>
-                        <?php } else if (isset($_SESSION['id'])) {
-                        if ($car['access'] == 1) { ?>
-
+                        <button type="submit" class="btn btn-danger w-50" value="<?= $_GET['id']; ?>" id="deleteCar" name="deleteCar">Supprimer</button>
+                    </form>
+                    <?php 
+                    if (isset($_POST['deleteCar'])){
+                        $controller = new \Controllers\Car();
+                        $controller->delete();
+                    } {
+                        # code...
+                    }    
+                } else if (isset($_SESSION['id'])) {
+                    if ($car['access'] == 1) { ?>
+                        <form class="buttons d-flex gap-2" method="POST" action="allCars.php?controller=car&&task=bookCar">
                             <button class="btn btn-dark w-50 mx-auto" type="submit" name="bookCar" value="<?= $_GET['id']; ?>">Reserver</button>
-                        <?php } else { ?>
-                            <h2 class="btn-dark w-50 bg-danger text-center text-light mx-auto p-2 fs-6" name="bookCar">Voiture reservée</h2>
+                        </form>
+                    <?php } else { ?>
+                        <h2 class="btn-dark w-50 bg-danger text-center text-light mx-auto p-2 fs-6" name="bookCar">Voiture reservée</h2>
 
-                        <?php }
-                    } else { ?>
-                        <a href="./login.php" class="mx-auto text-warning bg-dark p-2">Connectez-vous pour réserver cette voiture</a>
-                    <?php } ?>
+                    <?php }
+                } else { ?>
+                    <a href="./login.php" class="mx-auto text-warning bg-dark p-2">Connectez-vous pour réserver cette voiture</a>
+                <?php } ?>
                 </form>
             </div>
         </div>

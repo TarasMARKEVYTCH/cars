@@ -1,19 +1,15 @@
 <?php
-class Database{
-    private $host = 'localhost';
-    private $db_name = 'garage';
-    private $username = 'root';
-    private $password = 'root';
-    public $connexion;
-
-    public function connexion(){
-     try {
-        $this->connexion = null;
-        $this->connexion = new PDO('mysql:host='.$this->host . ';dbname='.$this->db_name, $this->username, $this->password);
-        $this->connexion->exec('set names utf8');
-     } catch (PDOException $e) {
-         echo 'Erreur de connexion :'.$e->getMessage();
-     }
-     return $this->connexion;
+class Database
+{
+    private static $instance = null; //singleton gestion d'une connexion
+    public static function getPdo(): PDO
+    {
+        if (self::$instance === null) {
+            self::$instance = new PDO('mysql:host=localhost;dbname=garage;charset=utf8', 'root', 'root', [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]);
+        }
+        return self::$instance;
     }
 }

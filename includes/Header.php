@@ -1,6 +1,3 @@
-<?php
-require __DIR__ . '/../controllers/deconnection.php';
-?>
 <header class="header d-flex w-100 ">
     <nav class="navbar w-100 navbar-dark bg-transparent p-3">
         <div class="container-fluid d-flex">
@@ -25,18 +22,19 @@ require __DIR__ . '/../controllers/deconnection.php';
                         <?php if ($_COOKIE['name'] === 'admin') { ?>
                             <li><a href="create.php" class="dropdown-item" name="connect" type="submit">Ajouter un vehicule</a></li>
                         <?php } ?>
-                        <!-- <li><a href="/controllers/deconnection.php" class="dropdown-item" name="connect">Se deconnecter</a></li> -->
                         <li>
-                            <form method="POST"><button class="dropdown-item" type="submit" name="deconnect">Se deconnecter</button></form>
+                            <form method="POST" action=""><button class="dropdown-item" id="deconnect" type="submit" name="deconnect" >Se deconnecter</button></form>
+                            <?php if(isset($_POST['deconnect'])){
+                             $controller = new \Controllers\User();
+                             $controller->deconnect();   
+                            }?> 
                         </li>
-
                     <?php } else { ?>
                         <li><a href="allCars.php" class="dropdown-item text-warning" name="connect" type="submit">Notre garage</a></li>
                         <li><a class="dropdown-item" href="contact.php">Contact</a></li>
                         <li><a href="login.php" class="dropdown-item" name="connect" type="submit">Se connecter</a></li>
                         <li><a href="signUp.php" class="dropdown-item" name="connect" type="submit">Créer un compte</a></li>
                     <?php } ?>
-
                 </ul>
             </div>
         </div>

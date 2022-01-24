@@ -1,5 +1,5 @@
 <?php
-require './models/searchModel.php';
+require_once('libraries/controllers/Car.php');
 ?>
 
 <body>
@@ -10,6 +10,8 @@ require './models/searchModel.php';
                 <?php if (isset($msg)) { ?> <h2 class="mx-auto text-success"><?= $msg; ?></h2> <?php } ?>
                 <section class="cars d-flex flex-wrap justify-content-around">
                     <?php
+                    $carController = new \Controllers\Car;
+                    $results = $carController->search();
                     if (!$results) {
                         $message = 'Pas des voitures dans le garage';
                     } else {
@@ -41,6 +43,4 @@ require './models/searchModel.php';
             </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../js/index.js"></script>
 </body>

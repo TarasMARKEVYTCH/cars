@@ -1,12 +1,11 @@
-let nav = document.querySelector(".header");
+let navbar = document.querySelector(".header");
 
-// header animation on scroll 
+// header animation on scroll
 window.addEventListener("scroll", (e) => {
-
   if (scrollY > 100) {
-    nav.classList.add("active");
+    navbar.classList.add("active");
   } else {
-    nav.classList.remove("active");
+    navbar.classList.remove("active");
   }
 });
 
@@ -18,3 +17,4 @@ let loadFile = function (event) {
     URL.revokeObjectURL(output.src);
   };
 };
+

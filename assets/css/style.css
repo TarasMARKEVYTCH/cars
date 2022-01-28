@@ -7,6 +7,7 @@ a:hover{
 }
 body{
     width: 100%;
+    min-height: 100vh;
     background-color: #212529;
     position: relative;
 }
@@ -138,10 +139,6 @@ input[type='file']{
 .one-car-body{
     width: 100%;
 }
-/* .img-card{
-    width: 45%;
-    object-fit: cover;
-} */
 #output{
     display: block;
     width: 100%;
@@ -182,4 +179,91 @@ input[type='file']{
 }
 .all-cars:hover{
     transform: scale(0.9);
+}
+
+
+                                        /* ====================== USER PAGE =========================== */
+
+.user-name{
+    text-decoration: underline;
+}
+.info-item{
+    border: 1px solid rgb(89, 211, 211);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.reservation-item{
+    border: 1px solid orange;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.avatar{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 100%;
+    border: 6px solid #b3c9cb;
+    position: relative;
+    transition: border 0.5s linear;
+}
+.avatar-img{
+    display: block;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}   
+#camera{
+    display: inline-block;
+    position: absolute;
+    width: 50%;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s linear;
+    -moz-transition: opacity 0.5s linear;
+    -o-transition: opacity 0.5s linear;
+    transition: opacity 0.5s linear;
+    -webkit-transform-style: preserve-3d;
+}
+.avatar:hover > #camera, #fileUpload{
+    opacity: 1;
+    cursor: pointer;
+}  
+#camera{
+    -webkit-transition: 450ms cubic-bezier(.7,0,.36,1);
+    transition: 350ms cubic-bezier(.7,0,.36,1);
+}
+#circle {
+    -webkit-transform: scale(0.75);
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transition: all 0.5s linear;
+    stroke-dashoffset: 33px;
+    stroke-dasharray: 33px; 
+}
+  
+#cameraFrame {
+    -webkit-transition: all 0.5s linear;
+    stroke-dashoffset: 72px;
+    stroke-dasharray: 72px; 
+}
+  
+#plus {
+    -webkit-transition: all 0.5s linear;
+    stroke-dashoffset: 5px;
+    stroke-dasharray: 5px; 
+} 
+.avatar:hover > #camera > #cameraFrame {
+    stroke-dashoffset: 0; 
+}
+.avatar:hover > #camera > #circle {
+    stroke-dashoffset: 0px; 
+}
+.avatar:hover > #camera > #plus {
+    stroke-dashoffset: 0px; 
+}
+#userImg{
+    opacity: 0;
+    position: absolute;
+    width: 100px;
+    z-index: 1000;
 }

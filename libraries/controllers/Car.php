@@ -117,7 +117,7 @@ class Car extends Controller
                         // check autorised image extension
                         if (in_array($extensionUpload, $extensionValid)) {
                             // create upload image rout
-                            $path = "./media/pictures/" . $voitureName . $voitureModel . "." . $extensionUpload;
+                            $path = "./assets/media/pictures/" . $voitureName . $voitureModel . "." . $extensionUpload;
                             // move upload image into server
                             $result = move_uploaded_file($_FILES['voitureImg']['tmp_name'], $path);
                             if ($result) {
@@ -146,6 +146,7 @@ class Car extends Controller
             //call one car select method
             $carModel = new \Models\Car();
             $car = $carModel->oneCar();
+            
             return $car;
         }
     }
@@ -211,7 +212,7 @@ class Car extends Controller
                 // check if upload extension autorised
                 if (in_array($extensionUpload, $extensionValid)) {
                     // create rout for upload image
-                    $path = "./media/pictures/" . $voitureName . "." . $extensionUpload;
+                    $path = "./assets/media/pictures/" . $voitureName . "." . $extensionUpload;
                     // move uploaded image into server
                     $result = move_uploaded_file($_FILES['voitureImg']['tmp_name'], $path);
                     if ($result) {

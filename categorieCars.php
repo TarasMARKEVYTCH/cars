@@ -27,7 +27,7 @@ require_once('libraries/controllers/Car.php');
                                     <h3 class="card-title"><?= $car['name']; ?></h3>
                                     <h5 class="card-title"><?= $car['model']; ?></h5>
                                 </div>
-                                <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
+                                <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="/assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
                             </div>
                             <?php } else {
                             if ($car['access'] == 0) {
@@ -39,7 +39,7 @@ require_once('libraries/controllers/Car.php');
                                             <h3 class="card-title"><?= $car['name']; ?></h3>
                                             <h5 class="card-title"><?= $car['model']; ?></h5>
                                         </div>
-                                        <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./media/pictures/<?= $car['img']; ?>" class="card-img-top" style="opacity: 0.6" alt="..."></a>
+                                        <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" style="opacity: 0.6" alt="..."></a>
                                     </div>
                                 </div>
                             <?php } else { ?>
@@ -48,7 +48,7 @@ require_once('libraries/controllers/Car.php');
                                         <h3 class="card-title"><?= $car['name']; ?></h3>
                                         <h5 class="card-title"><?= $car['model']; ?></h5>
                                     </div>
-                                    <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
+                                    <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
                                 </div>
                 <?php }
                         }

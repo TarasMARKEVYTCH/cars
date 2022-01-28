@@ -20,30 +20,27 @@ class Car extends Model
         }
         return $cars;
     }
-
     // get one car from DB
     public function oneCar()
     {
-        $carArt = $this->pdo->prepare('SELECT * from cars c LEFT JOIN cars_categories cc ON cc.categorie_id = c.categorie_car LEFT JOIN users u on c.reserved_id = u.id WHERE c.id = ?');
+        $carArt = $this->pdo->prepare('SELECT * from `cars` c LEFT JOIN cars_categories cc ON cc.categorie_id = c.categorie_car LEFT JOIN users u on c.reserved_id = u.id WHERE c.id = ?');
         $carArt->execute(array($_GET['id']));
         $car = $carArt->fetch();
         return $car;
     }
-
     // booked one car
     public function bookCar($id)
     {
         $newValue = 0;
         $session = $_SESSION['id'];
-        $updateCar = $this->pdo->prepare('UPDATE cars SET access = ?, reserved_id = ?, book_count = book_count+1 where id = ?');
+        $updateCar = $this->pdo->prepare('UPDATE `cars` SET `access` = ?, `reserved_id` = ?, `book_count` = book_count+1 where id = ?');
         $updateCar->execute(array($newValue, $session, $id));
     }
     public function insertCar($name, $model, $engine, $year, $categorie, $extensionUpload, $gearBox, $doors, $seats, $luggage, $description)
     {
-        $insertCars = $this->pdo->prepare('INSERT INTO cars (name, model, engine, year, categorie_car, img, gearbox, doors, seats, luggage, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $insertCars = $this->pdo->prepare('INSERT INTO `cars` (name, model, engine, year, categorie_car, img, gearbox, doors, seats, luggage, description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
         $insertCars->execute(array($name, $model, $engine, $year, $categorie, $name . $model . '.' . $extensionUpload, $gearBox, $doors, $seats, $luggage, $description));
     }
-
     // get last available  9 cars from DB
     public function topCars()
     {

@@ -14,7 +14,7 @@ require_once('libraries/controllers/Car.php');
         ?>
 
         <div class="card d-flex m-3 flex-wrap flex-row mx-auto bg-dark">
-            <img src="media/pictures/<?= $car['img']; ?>" class="card-img-top d-flex img-card" alt="...">
+            <img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top d-flex img-card" alt="...">
             <h2 class="text-light mx-auto">Vous avez choisi: <i><?= $car['name'] . ' ' . $car['model']; ?></i></h2>
             <div class="card-body bg-warning d-flex flex-column justify-content-between one-car-body">
                 <h2 class="card-title"><b><?= $car['name']; ?></b></h2>
@@ -27,23 +27,23 @@ require_once('libraries/controllers/Car.php');
                     <p class="card-text"><b>Disponibilité:</b><br><?php if ($car['access'] == 1) { ?> <span class="text-success p-2"><?= 'Oui'; ?></span><?php } else { ?> <span class="text-danger fs-5 p-2">Reservé par utilisateur - <b class="bg-light p-1"><?= $car['user_name']; ?></span><?php }; ?></b></p>
                 <?php } ?>
                 <div class="d-flex flex-wrap justify-content-start gap-5 p-5">
-                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./images/group.png" alt="group image">
+                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./assets/images/group.png" alt="group image">
                         <p class="m-auto"><?= $car['seats']; ?> places</p>
                     </div>
 
-                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./images/Gasoline.png" alt="">
+                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./assets/images/Gasoline.png" alt="">
                         <p class="m-auto"><?= $car['engine']; ?></p>
                     </div>
 
-                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./images/Gearbox.png" alt="">
+                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./assets/images/Gearbox.png" alt="">
                         <p class="m-auto"><?= $car['gearbox']; ?></p>
                     </div>
 
-                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./images/snowflake.png" alt="">
+                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./assets/images/snowflake.png" alt="">
                         <p class="m-auto"><?= $car['climatisation']; ?></p>
                     </div>
 
-                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./images/car-door.png" alt="">
+                    <div class="col-12 col-md-3 d-flex align-items-center justify-content-around gap-2"><img class="logo" src="./assets/images/car-door.png" alt="">
                         <p class="m-auto"><?= $car['doors']; ?> portières</p>
                     </div>
 

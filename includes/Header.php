@@ -29,6 +29,7 @@
                              $controller->deconnect();   
                             }?> 
                         </li>
+                        <li><a href="user.php" class="dropdown-item">Mon compte</a></li>
                     <?php } else { ?>
                         <li><a href="allCars.php" class="dropdown-item text-warning" name="connect" type="submit">Notre garage</a></li>
                         <li><a class="dropdown-item" href="contact.php">Contact</a></li>

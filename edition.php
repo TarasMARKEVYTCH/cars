@@ -11,7 +11,7 @@ require_once('libraries/Application.php');
 <body>
     <?php require __DIR__ . '/includes/Header.php'; ?>
     <main class="d-flex align-items-center text-center login p-5">
-        <form method="POST" class="formCreate d-flex text-info flex-column mx-auto gap-2 p-5 w-50" enctype="multipart/form-data" action="">
+        <form method="POST" class="form-create d-flex text-info flex-column mx-auto gap-2 p-5 w-50" enctype="multipart/form-data" action="">
             <?php
             if (isset($msg)) { ?>
                 <h3 class="d-flex text-info mx-auto m-3"><?= $msg; ?></h3>

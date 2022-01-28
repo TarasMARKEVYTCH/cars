@@ -49,7 +49,7 @@ require_once('libraries/autolload.php');
                         $categories = $carController->getAllCategories();
                         foreach ($categories as $categorie) { ?>
                             <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                                <div class="img d-flex align-items-center"><img src="./images/<?= $categorie['categorie_img']; ?>" alt="" class="cat-img"></div>
+                                <div class="img d-flex align-items-center"><img src="./assets/images/<?= $categorie['categorie_img']; ?>" alt="" class="cat-img"></div>
                                 <a href="categorieCars.php?categorie=<?= $categorie['categorie_id']; ?>" class="btn btn-outline-warning cat-button"><?= $categorie['categorie_name']; ?></a>
                             </div>
                         <?php } ?>
@@ -69,7 +69,7 @@ require_once('libraries/autolload.php');
                                             <h5 class="card-title text-warning"><?= $car['model']; ?></h5>
                                         </div>
                                     </form>
-                                    <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
+                                    <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
                                 </div>
                         <?php }
                         } ?>

@@ -63,10 +63,10 @@ require_once('libraries/Application.php');
                     <option value="1">1</option>
                 </select>
             </div>
-            <img src="media/pictures/<?= $updateCar['img']; ?>" alt="">
+            <img src="./assets/media/pictures/<?= $updateCar['car_img']; ?>" alt="">
             <div class="form-example d-flex justify-content-between">
                 <label for="voitureImg">Changer l'image : </label>
-                <input type="file" class="ms-auto" accept="image/*" onchange="loadFile(event)" name="voitureImg" value="<?= $updateCar['img']; ?>">
+                <input type="file" class="ms-auto" accept="image/*" onchange="loadFile(event)" name="voitureImg" value="<?= $updateCar['car_img']; ?>">
                 <div class="new-img">
                     <img id="output" class="p-1 mx-auto">
                 </div>
@@ -92,7 +92,7 @@ require_once('libraries/Application.php');
         
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/index.js">
+    <script src="./assets/js/index.js">
     </script>
 </body>
 

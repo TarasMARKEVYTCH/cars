@@ -9,7 +9,7 @@ function paginate()
 {
     $pdo = new Database();
     $pdo = $pdo->getPdo();
-    $count = $pdo->query("select count(id) as cpt from cars");
+    $count = $pdo->query("select count(car_id) as cpt from cars");
     $count->setFetchMode(PDO::FETCH_ASSOC);
     // $count->execute();
     $tcount = $count->fetchAll();

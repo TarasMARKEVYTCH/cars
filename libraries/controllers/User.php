@@ -36,7 +36,7 @@ class User
                         $_SESSION['mail'] = $user['user_mail'];
                         //create cookies
                         setcookie('name', $userName, time() + 365 * 24 * 3600, null, null, false, true);
-                        redirect('index.php');
+                        redirect('user.php');
                     } else {
                         throw new Exception('Email ou mot de passe incorrect');
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers;
 
 use Exception;
@@ -146,7 +147,7 @@ class Car extends Controller
             //call one car select method
             $carModel = new \Models\Car();
             $car = $carModel->oneCar();
-            
+
             return $car;
         }
     }
@@ -162,14 +163,24 @@ class Car extends Controller
     {
         $carControl = new \Models\Car();
         if (isset($_POST['voitureUpdate'])) {
-            if (isset($_POST['voitureName'], $_POST['voitureModel'], 
-            $_POST['voitureMoteur'], $_POST['voitureYear'], $_POST['gearBox'],
-            $_POST['doors'], $_POST['seats'], $_POST['luggage'],
-            $_POST['voitureDesc'], $_POST['voitureDisp']) && !empty($_POST['voitureName']) 
-            && !empty($_POST['voitureModel']) && !empty($_POST['voitureMoteur']) 
-            && !empty($_POST['voitureYear']) && !empty($_POST['gearBox'])
-            && !empty($_POST['doors']) && !empty($_POST['seats'])
-            && !empty($_POST['luggage']) && !empty($_POST['voitureDesc']) && !empty($_POST['voitureDisp'])) {
+            if (
+                isset(
+                    $_POST['voitureName'],
+                    $_POST['voitureModel'],
+                    $_POST['voitureMoteur'],
+                    $_POST['voitureYear'],
+                    $_POST['gearBox'],
+                    $_POST['doors'],
+                    $_POST['seats'],
+                    $_POST['luggage'],
+                    $_POST['voitureDesc'],
+                    $_POST['voitureDisp']
+                ) && !empty($_POST['voitureName'])
+                && !empty($_POST['voitureModel']) && !empty($_POST['voitureMoteur'])
+                && !empty($_POST['voitureYear']) && !empty($_POST['gearBox'])
+                && !empty($_POST['doors']) && !empty($_POST['seats'])
+                && !empty($_POST['luggage']) && !empty($_POST['voitureDesc']) && !empty($_POST['voitureDisp'])
+            ) {
                 // inputs controll
                 $idCar = (int) $_POST['voitureUpdate'];
                 $voitureName = test_input($_POST['voitureName']);
@@ -221,7 +232,7 @@ class Car extends Controller
                         $msg = 'Information modifiée';
                     }
                 } else {
-                   throw new Exception('La taille d\'image ne peut pas depasser 2Mo');
+                    throw new Exception('La taille d\'image ne peut pas depasser 2Mo');
                 }
             }
         }
@@ -245,6 +256,15 @@ class Car extends Controller
             $carDelete = $carModel->delete($id);
             $msg = 'Voiture supprimée !';
             redirect('index.php');
+        }
+    }
+    public function getStatistic()
+    {
+        if (isset($_SESSION['id']) && $_SESSION['name'] === 'admin') {
+            $carModel = new \Models\Car();
+            $req = $carModel->getStatistic();
+            $req = $req->fetchAll();
+            return $req;
         }
     }
 }

@@ -14,7 +14,7 @@ require_once('libraries/controllers/Car.php');
         ?>
 
         <div class="card d-flex m-3 flex-wrap flex-row mx-auto bg-dark">
-            <img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top d-flex img-card" alt="...">
+            <img src="./assets/media/pictures/<?= $car['car_img']; ?>" class="card-img-top d-flex img-card" alt="...">
             <h2 class="text-light mx-auto">Vous avez choisi: <i><?= $car['name'] . ' ' . $car['model']; ?></i></h2>
             <div class="card-body bg-warning d-flex flex-column justify-content-between one-car-body">
                 <h2 class="card-title"><b><?= $car['name']; ?></b></h2>
@@ -82,5 +82,5 @@ require_once('libraries/controllers/Car.php');
     <?php
     require './includes/Footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/index.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>

@@ -18,7 +18,7 @@ require_once('libraries/controllers/Car.php');
                         foreach ($results as $result) {
                     ?>
                             <div class="card m-3 col-4">
-                                <a href="./carArticle.php?id=<?= $result['id']; ?>"><img src="assets/media/pictures/<?= $result['img']; ?>" class="card-img-top" alt="..."></a>
+                                <a href="./carArticle.php?id=<?= $result['car_id']; ?>"><img src="assets/media/pictures/<?= $result['car_img']; ?>" class="card-img-top" alt="..."></a>
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $result['name']; ?></h5>
                                     <h5 class="card-title"><?= $result['model']; ?></h5>

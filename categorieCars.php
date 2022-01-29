@@ -27,7 +27,7 @@ require_once('libraries/controllers/Car.php');
                                     <h3 class="card-title"><?= $car['name']; ?></h3>
                                     <h5 class="card-title"><?= $car['model']; ?></h5>
                                 </div>
-                                <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="/assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
+                                <a href="carArticle.php?id=<?= $car['car_id']; ?>"><img src="./assets/media/pictures/<?= $car['car_img']; ?>" class="card-img-top" alt="..."></a>
                             </div>
                             <?php } else {
                             if ($car['access'] == 0) {
@@ -39,7 +39,7 @@ require_once('libraries/controllers/Car.php');
                                             <h3 class="card-title"><?= $car['name']; ?></h3>
                                             <h5 class="card-title"><?= $car['model']; ?></h5>
                                         </div>
-                                        <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" style="opacity: 0.6" alt="..."></a>
+                                        <a href="carArticle.php?id=<?= $car['car_id']; ?>"><img src="./assets/media/pictures/<?= $car['car_img']; ?>" class="card-img-top" style="opacity: 0.6" alt="..."></a>
                                     </div>
                                 </div>
                             <?php } else { ?>
@@ -48,7 +48,7 @@ require_once('libraries/controllers/Car.php');
                                         <h3 class="card-title"><?= $car['name']; ?></h3>
                                         <h5 class="card-title"><?= $car['model']; ?></h5>
                                     </div>
-                                    <a href="carArticle.php?id=<?= $car['id']; ?>"><img src="./assets/media/pictures/<?= $car['img']; ?>" class="card-img-top" alt="..."></a>
+                                    <a href="carArticle.php?id=<?= $car['car_id']; ?>"><img src="./assets/media/pictures/<?= $car['car_img']; ?>" class="card-img-top" alt="..."></a>
                                 </div>
                 <?php }
                         }
@@ -63,5 +63,5 @@ require_once('libraries/controllers/Car.php');
     require './includes/Footer.php';
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/index.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>

@@ -21,19 +21,19 @@ require __DIR__ . '/includes/head.php'; ?>
             <?php if (isset($err)) { ?><h2 class="mx-auto text-danger"><?= $err; ?></h2>
             <?php }
             ?>
-            <?php 
-                try{
-                    if(isset($_POST['signup'])){ 
-                        $controller = new \Controllers\User();
-                        $controller->signUp();
-                    }
-                } catch (Exception $e){ ?>
-                    <h2 class="mx-auto text-danger"><?= $e->getMessage(); ?></h2>
-                    <?php } ?>
+            <?php
+            try {
+                if (isset($_POST['signup'])) {
+                    $controller = new \Controllers\User();
+                    $controller->signUp();
+                }
+            } catch (Exception $e) { ?>
+                <h2 class="mx-auto text-danger"><?= $e->getMessage(); ?></h2>
+            <?php } ?>
         </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/index.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
 
 </html>
